@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "05da750f-82b6-437e-b63d-60471294fda0",
+		"name": "FixtureID has a value",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assert each has 3 fixtures are not empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "386f3575-c3d1-459d-a13b-dec0ccb3c90f",
+						"exec": [
+							"//Assert that each of the 3 fixtures has a fixtureId value.//\r",
+							"var fixtures = pm.response.json();\r",
+							"pm.test('All fixtures must have a fixtureID', function () {\r",
+							"for (i = 0; i < fixtures.length; i++) {\r",
+							"  pm.expect(fixtures.fixtureID).not.equal(null);\r",
+							"}\r",
+							"    \r",
+							"})\r",
+							"; "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/fixtures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"fixtures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return 3 fixtures with return object",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "386f3575-c3d1-459d-a13b-dec0ccb3c90f",
+						"exec": [
+							"//Assert that there are 3 fixtures within the returned object.//\r",
+							"var fixtures = pm.response.json();\r",
+							"pm.test('Number of fixtures returned = ' + fixtures.length, function () {\r",
+							"pm.expect(fixtures.length).to.equal(3);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/fixtures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"fixtures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the new fixture.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "386f3575-c3d1-459d-a13b-dec0ccb3c90f",
+						"exec": [
+							"//Assert that each of the 3 fixtures has a fixtureId value.//\r",
+							"var fixtures = pm.response.json();\r",
+							"pm.test('All fixtures must have a fixtureID', function () {\r",
+							"for (i = 0; i < fixtures.length; i++) {\r",
+							"  pm.expect(fixtures.fixtureID).not.equal(null);\r",
+							"}\r",
+							"    \r",
+							"})\r",
+							"; "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/fixture",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"fixture"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
